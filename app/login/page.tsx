@@ -1,7 +1,7 @@
 // import LoginForm from "@/components/auth/LoginForm";
 
+import LoginForm from "@/components/auth/LoginForm";
+
 export default function LoginPage() {
-  return <>
-  <h1>kfder</h1>
-  </>
+  return <LoginForm/>
 }
