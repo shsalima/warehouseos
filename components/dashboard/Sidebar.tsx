@@ -1,19 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { signOut } from "next-auth/react";
 import {
   Package,
   ShoppingCart,
   Truck,
   BarChart3,
   Settings,
-  LogOut,
 } from "lucide-react";
 
 export default function Sidebar() {
   return (
-    <aside className="relative flex flex-col w-64 min-h-screen bg-black text-white">
+    <aside className="w-64 min-h-screen bg-black text-white">
 
       <div className="p-6 border-b border-gray-800">
         <h2 className="text-2xl font-bold">WarehouseOS</h2>
@@ -22,8 +20,7 @@ export default function Sidebar() {
         </p>
       </div>
 
-      
-      <nav className="flex-1 mt-6">
+      <nav className="mt-6">
 
         <Link
           href="/dashboard"
@@ -66,17 +63,6 @@ export default function Sidebar() {
         </Link>
 
       </nav>
-
-     
-      <div className="p-4 border-t border-gray-800">
-        <button
-          onClick={() => signOut({ callbackUrl: "/login" })}
-          className="flex items-center justify-center gap-2 w-full bg-red-600 hover:bg-red-700 transition text-white py-3 rounded-lg"
-        >
-          <LogOut size={18} />
-          Logout
-        </button>
-      </div>
 
     </aside>
   );
