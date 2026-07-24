@@ -1,15 +1,18 @@
-version: "3.9"
-
 services:
-
-  warehouseos:
-
+  nextjs:
     build: .
-
-    container_name: warehouseos
-
+    command: npm run dev
     ports:
-      - "3000:3000"
-
+      - target: 3000
+        published: 3000
     env_file:
-      - .env.local
+      .env.local
+  mongo:
+    image: mongo:latest
+    ports:
+      - target: 27017
+        published: 27017
+    volumes:
+      - warehouse:/data/db
+volumes:
+  warehouse:
