@@ -6,6 +6,7 @@ import Image from "next/image";
 import Header from "@/components/dashboard/Header";
 import Sidebar from "@/components/dashboard/Sidebar";
 import StatsCard from "@/components/dashboard/StatsCard";
+import Footer from "@/components/dashboard/Footer";
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
@@ -87,6 +88,7 @@ export default async function DashboardPage() {
 
         </main>
 
+      <Footer/>
       </div>
 
     </div>
