@@ -7,8 +7,7 @@ export default function Header() {
   const { data: session } = useSession();
 
   return (
-    <header className="h-16 bg-white border-b flex items-center justify-between px-6">
-
+<header className="bg-white border-b flex flex-col md:flex-row items-center justify-between px-6 py-4 gap-4">
       
       <div className="flex items-center gap-6">
         <h1 className="text-2xl font-bold">Dashboard</h1>

@@ -11,8 +11,7 @@ import {
 
 export default function Sidebar() {
   return (
-    <aside className="w-64 min-h-screen bg-black text-white">
-
+<aside className="hidden md:block w-64 min-h-screen bg-black text-white">
       <div className="p-6 border-b border-gray-800">
         <h2 className="text-2xl font-bold">WarehouseOS</h2>
         <p className="text-sm text-gray-400">

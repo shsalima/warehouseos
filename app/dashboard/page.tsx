@@ -16,7 +16,7 @@ export default async function DashboardPage() {
   }
 
   return (
-    <div className="flex bg-gray-100 min-h-screen">
+    <div className="min-h-screen bg-gray-100 md:flex">
 
       <Sidebar />
 
@@ -24,10 +24,10 @@ export default async function DashboardPage() {
 
         <Header />
 
-        <main className="p-8">
+        <main className="p-4 md:p-8">
 
-          <h1 className="text-4xl font-bold">
-            Welcome, {session.user?.name}!
+          <h1 className="text-2xl md:text-4xl font-bold">
+            Welcome, {session.user?.name}
           </h1>
 
           <p className="text-gray-500 mt-2">
