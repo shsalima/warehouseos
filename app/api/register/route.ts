@@ -24,9 +24,7 @@ export async function POST(request: Request) {
 
     await connectDB();
 
-    const existingUser = await User.findOne({
-      email: body.email,
-    });
+    const existingUser = await User.findOne({email: body.email});
 
     if (existingUser) {
       return NextResponse.json(
@@ -34,11 +32,12 @@ export async function POST(request: Request) {
           message: "Email déjà utilisé",
         },
         {
+          // 409=> Conflict
           status: 409,
         }
       );
     }
-
+    // Salt Rounds
     const hashedPassword = await bcrypt.hash(body.password, 10);
 
     const user = await User.create({
