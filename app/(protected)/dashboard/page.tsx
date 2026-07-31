@@ -3,8 +3,7 @@ import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Image from "next/image";
 
-import Header from "@/components/dashboard/Header";
-import Sidebar from "@/components/dashboard/Sidebar";
+
 import StatsCard from "@/components/dashboard/StatsCard";
 import Footer from "@/components/dashboard/Footer";
 
@@ -18,11 +17,10 @@ export default async function DashboardPage() {
   return (
     <div className="min-h-screen bg-gray-100 md:flex">
 
-      <Sidebar />
+      
 
       <div className="flex-1">
 
-        <Header />
 
         <main className="p-4 md:p-8">
 
