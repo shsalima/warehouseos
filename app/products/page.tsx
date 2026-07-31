@@ -5,7 +5,9 @@ import Link from "next/link";
 export default async function ProductsPage() {
   await connectDB();
 
-  const products = await Product.find();
+ const products = await Product.find()
+  .populate("category")
+  .lean();
 
   return (
     <div className="p-6">
@@ -45,8 +47,8 @@ export default async function ProductsPage() {
               </td>
 
               <td className="border p-2">
-                {product.category}
-              </td>
+  {product.category?.name}
+</td>
 
               <td className="border p-2">
                 {product.price} MAD

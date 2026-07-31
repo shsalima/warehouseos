@@ -30,6 +30,7 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
+    console.log("BODY =>", body);
 
     const validation = productSchema.safeParse(body);
 
@@ -60,6 +61,14 @@ export async function POST(request: Request) {
         },
       );
     }
+    console.log("CREATE =>", {
+  name: body.name,
+  sku: body.sku,
+  description: body.description,
+  category: body.category,
+  price: body.price,
+  quantity: body.quantity,
+});
 
     const product = await Product.create({
       name: body.name,
@@ -85,6 +94,7 @@ export async function POST(request: Request) {
   return NextResponse.json(
     {
       message: error.message,
+     stack: error.stack,
     },
     {
       status: 500,
