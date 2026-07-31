@@ -2,65 +2,58 @@
 
 import Link from "next/link";
 import {
+  LayoutDashboard,
   Package,
-  ShoppingCart,
-  Truck,
-  BarChart3,
-  Settings,
+  FolderTree,
+  ArrowLeftRight,
 } from "lucide-react";
 
 export default function Sidebar() {
   return (
-<aside className="hidden md:block w-64 min-h-screen bg-black text-white">
+    <aside className="hidden md:flex flex-col w-64 min-h-screen bg-black text-white">
+
       <div className="p-6 border-b border-gray-800">
-        <h2 className="text-2xl font-bold">WarehouseOS</h2>
+        <h2 className="text-2xl font-bold">
+          WarehouseOS
+        </h2>
+
         <p className="text-sm text-gray-400">
-          Admin Terminal
+          Warehouse Management
         </p>
       </div>
 
-      <nav className="mt-6">
-
+      <nav className="flex flex-col mt-6">
         <Link
           href="/dashboard"
-          className="flex items-center gap-3 px-6 py-3 hover:bg-orange-500 transition"
+          className="flex items-center gap-3 px-6 py-3 hover:bg-orange-500"
+        >
+          <LayoutDashboard size={20} />
+          Dashboard
+        </Link>
+
+        <Link
+          href="/products"
+          className="flex items-center gap-3 px-6 py-3 hover:bg-orange-500"
         >
           <Package size={20} />
-          <span>Inventory</span>
+          Products
         </Link>
 
         <Link
-          href="#"
-          className="flex items-center gap-3 px-6 py-3 hover:bg-orange-500 transition"
+          href="/categories"
+          className="flex items-center gap-3 px-6 py-3 hover:bg-orange-500"
         >
-          <ShoppingCart size={20} />
-          <span>Orders</span>
+          <FolderTree size={20} />
+          Categories
         </Link>
 
         <Link
-          href="#"
-          className="flex items-center gap-3 px-6 py-3 hover:bg-orange-500 transition"
+          href="/stock/movements"
+          className="flex items-center gap-3 px-6 py-3 hover:bg-orange-500"
         >
-          <Truck size={20} />
-          <span>Shipments</span>
+          <ArrowLeftRight size={20} />
+          Stock Movements
         </Link>
-
-        <Link
-          href="#"
-          className="flex items-center gap-3 px-6 py-3 hover:bg-orange-500 transition"
-        >
-          <BarChart3 size={20} />
-          <span>Reports</span>
-        </Link>
-
-        <Link
-          href="#"
-          className="flex items-center gap-3 px-6 py-3 hover:bg-orange-500 transition"
-        >
-          <Settings size={20} />
-          <span>Settings</span>
-        </Link>
-
       </nav>
 
     </aside>
