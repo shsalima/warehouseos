@@ -4,6 +4,29 @@ import { connectDB } from "@/lib/mongodb";
 import Product from "@/models/Product";
 import { productSchema } from "@/schemas/product.schema";
 
+export async function GET() {
+  try {
+    await connectDB();
+
+    const products = await Product.find();
+
+    return NextResponse.json(products, {
+      status: 200,
+    });
+  } catch (error) {
+    console.error(error);
+
+    return NextResponse.json(
+      {
+        message: "Erreur serveur",
+      },
+      {
+        status: 500,
+      },
+    );
+  }
+}
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -17,7 +40,7 @@ export async function POST(request: Request) {
         },
         {
           status: 400,
-        }
+        },
       );
     }
 
@@ -34,7 +57,7 @@ export async function POST(request: Request) {
         },
         {
           status: 409,
-        }
+        },
       );
     }
 
@@ -54,18 +77,18 @@ export async function POST(request: Request) {
       },
       {
         status: 201,
-      }
-    );
-  } catch (error) {
-    console.error(error);
-
-    return NextResponse.json(
-      {
-        message: "Erreur serveur",
       },
-      {
-        status: 500,
-      }
     );
-  }
+ } catch (error: any) {
+  console.error("ERROR =>", error);
+
+  return NextResponse.json(
+    {
+      message: error.message,
+    },
+    {
+      status: 500,
+    }
+  );
+}
 }
